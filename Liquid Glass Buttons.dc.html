@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Hanken+Grotesk:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0e6fc4;-webkit-font-smoothing:antialiased}
+@keyframes bgPulse{0%,100%{transform:scale(1) rotate(0deg)}50%{transform:scale(1.08) rotate(3deg)}}
+@keyframes sheen{0%{transform:translateX(-160%) skewX(-14deg)}100%{transform:translateX(220%) skewX(-14deg)}}
+@keyframes floatUp{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes glowBeat{0%,100%{opacity:.5}50%{opacity:.9}}
+</style>
+</helmet>
+
+<div ref="{{ setRoot }}" style="min-height:100vh;position:relative;overflow:hidden;font-family:'Hanken Grotesk',sans-serif;background:linear-gradient(150deg,#1a8fe8 0%,#3db8f5 30%,#eaf8ff 55%,#7dd4f8 70%,#1a74d4 100%)">
+
+  <!-- Layered background -->
+  <div style="position:absolute;inset:0;overflow:hidden;pointer-events:none">
+    <div style="position:absolute;top:-20%;left:-10%;width:70vw;height:70vw;background:radial-gradient(circle,rgba(255,255,255,.45),transparent 58%);filter:blur(24px);animation:bgPulse 18s ease-in-out infinite"></div>
+    <div style="position:absolute;bottom:-18%;right:-8%;width:60vw;height:60vw;background:radial-gradient(circle,rgba(100,210,255,.5),transparent 55%);filter:blur(28px);animation:bgPulse 22s ease-in-out infinite 4s"></div>
+    <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:.85" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <radialGradient id="bb" cx="34%" cy="30%" r="72%"><stop offset="0%" stop-color="rgba(255,255,255,.22)"/><stop offset="72%" stop-color="rgba(180,228,246,.08)"/><stop offset="90%" stop-color="rgba(235,248,253,.4)"/><stop offset="100%" stop-color="rgba(140,195,235,.3)"/></radialGradient>
+        <radialGradient id="hl" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="rgba(255,255,255,.88)"/><stop offset="100%" stop-color="rgba(255,255,255,0)"/></radialGradient>
+        <linearGradient id="ir" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="rgba(200,220,255,.5)"/><stop offset="33%" stop-color="rgba(180,255,230,.44)"/><stop offset="66%" stop-color="rgba(255,200,235,.44)"/><stop offset="100%" stop-color="rgba(210,200,255,.5)"/></linearGradient>
+        <radialGradient id="iridR" cx="50%" cy="50%" r="50%"><stop offset="74%" stop-color="rgba(255,255,255,0)"/><stop offset="86%" stop-color="rgba(170,255,232,.32)"/><stop offset="92%" stop-color="rgba(255,196,236,.34)"/><stop offset="97%" stop-color="rgba(196,212,255,.38)"/><stop offset="100%" stop-color="rgba(255,255,255,0)"/></radialGradient>
+      </defs>
+      <g style="animation:floatUp 20s ease-in-out infinite">
+        <circle cx="220" cy="260" r="120" fill="url(#bb)" stroke="rgba(255,255,255,.5)" stroke-width="1.3"/>
+        <circle cx="220" cy="260" r="120" fill="url(#iridR)"/>
+        <ellipse cx="168" cy="200" rx="38" ry="26" fill="url(#hl)" transform="rotate(-30 168 200)"/>
+        <ellipse cx="156" cy="191" rx="14" ry="8" fill="rgba(255,255,255,.9)" transform="rotate(-30 156 191)"/>
+      </g>
+      <g style="animation:floatUp 16s ease-in-out infinite 3s">
+        <circle cx="1100" cy="180" r="160" fill="url(#bb)" stroke="rgba(255,255,255,.52)" stroke-width="1.4"/>
+        <circle cx="1100" cy="180" r="160" fill="url(#iridR)"/>
+        <ellipse cx="1040" cy="108" rx="52" ry="36" fill="url(#hl)" transform="rotate(-30 1040 108)"/>
+        <ellipse cx="1026" cy="98" rx="20" ry="12" fill="rgba(255,255,255,.88)" transform="rotate(-30 1026 98)"/>
+      </g>
+      <g style="animation:floatUp 24s ease-in-out infinite 7s">
+        <circle cx="700" cy="760" r="88" fill="url(#bb)" stroke="rgba(255,255,255,.48)" stroke-width="1.2"/>
+        <circle cx="700" cy="760" r="88" fill="url(#iridR)"/>
+        <ellipse cx="662" cy="718" rx="28" ry="20" fill="url(#hl)" transform="rotate(-30 662 718)"/>
+        <ellipse cx="653" cy="711" rx="10" ry="6" fill="rgba(255,255,255,.85)" transform="rotate(-30 653 711)"/>
+      </g>
+      <path d="M-60 440 C 280 380,660 480,1040 400 C 1240 365,1380 390,1520 375" stroke="rgba(255,255,255,.52)" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <path d="M-60 490 C 320 436,720 520,1100 455 C 1280 428,1420 448,1520 438" stroke="rgba(255,255,255,.32)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+      <path d="M-60 620 C 200 580,460 640,720 600 C 950 565,1200 630,1520 590 L1520 900 L-60 900Z" fill="rgba(255,255,255,.11)"/>
+    </svg>
+  </div>
+
+  <!-- Content -->
+  <div style="position:relative;z-index:1;max-width:960px;margin:0 auto;padding:clamp(64px,9vw,110px) clamp(24px,5vw,64px)">
+
+    <div style="text-align:center;margin-bottom:clamp(48px,7vw,80px)">
+      <p style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.36em;text-transform:uppercase;color:rgba(12,38,60,.7);margin-bottom:16px">Liquid Glass · CSS</p>
+      <h1 style="font-family:'DM Serif Display',serif;font-size:clamp(38px,6vw,68px);line-height:1;color:#0c2630;margin-bottom:12px">Glass Elements</h1>
+      <p style="font-size:15px;color:rgba(12,38,60,.6);max-width:420px;margin:0 auto;line-height:1.6">blur · depth · chromatic aberration · iridescence</p>
+    </div>
+
+    <!-- Row 1: Pill buttons -->
+    <div style="margin-bottom:clamp(32px,5vw,56px)">
+      <p style="font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:rgba(12,38,60,.5);margin-bottom:22px">Pill Buttons</p>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center">
+        <button data-glass="1" style="position:relative;overflow:hidden;padding:15px 32px;border-radius:60px;background:linear-gradient(177deg,rgba(255,255,255,.82) 0%,rgba(220,242,252,.54) 42%,rgba(148,210,238,.46) 52%,rgba(232,248,254,.72) 100%);border:1px solid rgba(255,255,255,.85);box-shadow:0 18px 40px -14px rgba(10,55,75,.42),inset 0 2px 0 rgba(255,255,255,.98),inset 0 -10px 20px -14px rgba(40,130,170,.44),-1px 0 0 rgba(255,120,120,.18),1px 0 0 rgba(120,120,255,.18);backdrop-filter:blur(12px) saturate(1.8);-webkit-backdrop-filter:blur(12px) saturate(1.8);font-family:'Hanken Grotesk',sans-serif;font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#0c2630;cursor:pointer;transition:transform .35s cubic-bezier(.22,1,.36,1),box-shadow .35s" style-before="content:'';position:absolute;left:8px;right:8px;top:2px;height:46%;border-radius:50px;background:linear-gradient(180deg,rgba(255,255,255,.88),transparent);pointer-events:none;mix-blend-mode:screen" style-after="content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(160px circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.65),transparent 60%);opacity:var(--glr,0);transition:opacity .4s;mix-blend-mode:screen;z-index:2" style-hover="transform:translateY(-3px) scale(1.02);box-shadow:0 24px 50px -14px rgba(10,55,75,.48),inset 0 2px 0 rgba(255,255,255,1),inset 0 -10px 20px -14px rgba(40,130,170,.44)"><span style="position:absolute;inset:0;overflow:hidden;border-radius:inherit;pointer-events:none"><span style="position:absolute;top:0;left:0;width:44%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.72),transparent);animation:sheen 6s ease-in-out infinite"></span></span><span style="position:relative;z-index:1">Discover</span></button>
+
+        <button data-glass="1" style="position:relative;overflow:hidden;padding:15px 32px;border-radius:60px;background:linear-gradient(177deg,rgba(255,255,255,.46),rgba(200,238,252,.28) 55%,rgba(255,255,255,.38));backdrop-filter:blur(18px) saturate(1.9) brightness(1.08);-webkit-backdrop-filter:blur(18px) saturate(1.9) brightness(1.08);border:1px solid rgba(255,255,255,.7);box-shadow:0 14px 32px -14px rgba(10,55,75,.35),inset 0 2px 0 rgba(255,255,255,.9),inset 0 -8px 18px -12px rgba(40,130,170,.36),-1px 0 0 rgba(255,160,160,.14),1px 0 0 rgba(160,160,255,.14);font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#0c2630;cursor:pointer;transition:transform .35s cubic-bezier(.22,1,.36,1)" style-before="content:'';position:absolute;left:8px;right:8px;top:2px;height:46%;border-radius:50px;background:linear-gradient(180deg,rgba(255,255,255,.72),transparent);pointer-events:none;mix-blend-mode:screen" style-after="content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(160px circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.55),transparent 58%);opacity:var(--glr,0);transition:opacity .4s;mix-blend-mode:screen;z-index:2" style-hover="transform:translateY(-3px) scale(1.02)"><span style="position:relative;z-index:1">Explore</span></button>
+
+        <button data-glass="1" style="position:relative;overflow:hidden;width:52px;height:52px;border-radius:50%;background:linear-gradient(177deg,rgba(255,255,255,.82),rgba(220,242,252,.54) 44%,rgba(148,210,238,.48) 54%,rgba(232,248,254,.74));border:1px solid rgba(255,255,255,.85);box-shadow:0 14px 32px -12px rgba(10,55,75,.4),inset 0 2px 0 rgba(255,255,255,.98),inset 0 -8px 16px -12px rgba(40,130,170,.42),-1px 0 0 rgba(255,120,120,.15),1px 0 0 rgba(120,120,255,.15);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .35s" style-before="content:'';position:absolute;left:4px;right:4px;top:2px;height:48%;border-radius:50%;background:linear-gradient(180deg,rgba(255,255,255,.88),transparent);pointer-events:none;mix-blend-mode:screen" style-after="content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(120px circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.65),transparent 60%);opacity:var(--glr,0);transition:opacity .4s;mix-blend-mode:screen" style-hover="transform:translateY(-3px) scale(1.06)"><svg style="position:relative;z-index:1" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0c2630" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+
+        <button data-glass="1" style="position:relative;overflow:hidden;width:52px;height:52px;border-radius:50%;background:linear-gradient(177deg,rgba(255,255,255,.46),rgba(200,238,252,.28) 55%,rgba(255,255,255,.38));backdrop-filter:blur(18px) saturate(2);-webkit-backdrop-filter:blur(18px) saturate(2);border:1px solid rgba(255,255,255,.7);box-shadow:0 12px 28px -12px rgba(10,55,75,.34),inset 0 2px 0 rgba(255,255,255,.9),inset 0 -8px 16px -12px rgba(40,130,170,.32);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .35s" style-before="content:'';position:absolute;left:4px;right:4px;top:2px;height:48%;border-radius:50%;background:linear-gradient(180deg,rgba(255,255,255,.72),transparent);pointer-events:none;mix-blend-mode:screen" style-after="content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(120px circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.55),transparent 60%);opacity:var(--glr,0);transition:opacity .4s;mix-blend-mode:screen" style-hover="transform:translateY(-3px) scale(1.06)"><svg style="position:relative;z-index:1" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0c2630" stroke-width="2"><path d="M6 9l6-6 6 6"/><path d="M6 19l6-6 6 6"/></svg></button>
+      </div>
+    </div>
+
+    <!-- Row 2: Glass cards / panels -->
+    <div style="margin-bottom:clamp(32px,5vw,56px)">
+      <p style="font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:rgba(12,38,60,.5);margin-bottom:22px">Glass Panels — blur · depth · chromatic aberration</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
+
+        <!-- Crystal (solid gloss) -->
+        <div data-glass="1" style="position:relative;overflow:hidden;border-radius:28px;padding:28px 26px 32px;background:linear-gradient(162deg,rgba(255,255,255,.78) 0%,rgba(222,244,252,.52) 44%,rgba(150,212,240,.44) 54%,rgba(240,250,254,.68) 100%);border:1px solid rgba(255,255,255,.9);box-shadow:0 24px 56px -24px rgba(10,55,75,.48),0 0 0 1px rgba(255,255,255,.28),inset 0 2px 0 rgba(255,255,255,1),inset 0 -28px 46px -32px rgba(40,130,170,.48),-1px 0 0 rgba(255,100,100,.14),1px 0 0 rgba(100,100,255,.16);backdrop-filter:blur(8px) saturate(1.6);-webkit-backdrop-filter:blur(8px) saturate(1.6);cursor:pointer;transition:transform .45s cubic-bezier(.22,1,.36,1),box-shadow .45s" style-before="content:'';position:absolute;left:12px;right:12px;top:3px;height:42%;border-radius:22px;background:linear-gradient(180deg,rgba(255,255,255,.86),rgba(255,255,255,.1) 60%,transparent);pointer-events:none;mix-blend-mode:screen" style-after="content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(260px circle at var(--gx,50%) var(--gy,0%),rgba(255,255,255,.55),transparent 56%);opacity:var(--glr,0);transition:opacity .5s;mix-blend-mode:screen;z-index:4" style-hover="transform:translateY(-6px) scale(1.02);box-shadow:0 32px 66px -24px rgba(10,55,75,.54),0 0 0 1px rgba(255,255,255,.42),inset 0 2px 0 rgba(255,255,255,1),inset 0 -28px 46px -32px rgba(40,130,170,.48)">
+          <div style="position:absolute;inset:0;overflow:hidden;border-radius:inherit;pointer-events:none"><div style="position:absolute;top:0;left:0;width:44%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.6),transparent);animation:sheen 9s ease-in-out infinite"></div></div>
+          <p style="font-family:'Geist Mono',monospace;font-size:9.5px;letter-spacing:.28em;text-transform:uppercase;color:rgba(10,38,60,.6);margin-bottom:12px;position:relative;z-index:1">Crystal</p>
+          <p style="font-family:'DM Serif Display',serif;font-size:26px;color:#0c2630;line-height:1.1;position:relative;z-index:1">Polished<br><span style="font-style:italic">Glass</span></p>
+          <p style="font-size:13px;color:rgba(10,38,60,.62);margin-top:10px;line-height:1.5;position:relative;z-index:1">Solid gloss · thick highlight · crystal depth</p>
+          <div style="margin-top:20px;display:flex;gap:8px;position:relative;z-index:1">
+            <span style="width:10px;height:10px;border-radius:50%;background:rgba(43,182,199,1);box-shadow:0 0 8px rgba(43,182,199,.8),inset 0 1px 2px rgba(255,255,255,.7)"></span>
+            <span style="width:10px;height:10px;border-radius:50%;background:rgba(100,200,140,1);box-shadow:0 0 8px rgba(100,200,140,.7),inset 0 1px 2px rgba(255,255,255,.7)"></span>
+            <span style="width:10px;height:10px;border-radius:50%;background:rgba(180,130,240,1);box-shadow:0 0 8px rgba(180,130,240,.7),inset 0 1px 2px rgba(255,255,255,.7)"></span>
+          </div>
+        </div>
+
+        <!-- Frosted (translucent) -->
+        <div data-glass="1" style="position:relative;overflow:hidden;border-radius:28px;padding:28px 26px 32px;background:linear-gradient(162deg,rgba(255,255,255,.44),rgba(210,240,252,.22) 54%,rgba(255,255,255,.36));backdrop-filter:blur(24px) saturate(2) brightness(1.1);-webkit-backdrop-filter:blur(24px) saturate(2) brightness(1.1);border:1px solid rgba(255,255,255,.7);box-shadow:0 20px 52px -20px rgba(10,55,75,.4),0 0 0 1px rgba(255,255,255,.2),inset 0 2px 0 rgba(255,255,255,.9),inset 0 -24px 42px -30px rgba(40,130,170,.36),-1px 0 0 rgba(255,140,140,.12),1px 0 0 rgba(140,140,255,.14);cursor:pointer;transition:transform .45s cubic-bezier(.22,1,.36,1)" style-before="content:'';position:absolute;left:12px;right:12px;top:3px;height:40%;border-radius:22px;background:linear-gradient(180deg,rgba(255,255,255,.72),transparent);pointer-events:none;mix-blend-mode:screen" style-after="content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(260px circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.48),transparent 58%);opacity:var(--glr,0);transition:opacity .5s;mix-blend-mode:screen;z-index:4" style-hover="transform:translateY(-6px) scale(1.02)">
+          <p style="font-family:'Geist Mono',monospace;font-size:9.5px;letter-spacing:.28em;text-transform:uppercase;color:rgba(10,38,60,.6);margin-bottom:12px">Frosted</p>
+          <p style="font-family:'DM Serif Display',serif;font-size:26px;color:#0c2630;line-height:1.1">Translucent<br><span style="font-style:italic">Blur</span></p>
+          <p style="font-size:13px;color:rgba(10,38,60,.62);margin-top:10px;line-height:1.5">backdrop-filter · saturate · high blur depth</p>
+          <div style="margin-top:20px;display:flex;gap:8px">
+            <span style="width:10px;height:10px;border-radius:50%;background:rgba(230,150,90,1);box-shadow:0 0 8px rgba(230,150,90,.75),inset 0 1px 2px rgba(255,255,255,.7)"></span>
+            <span style="width:10px;height:10px;border-radius:50%;background:rgba(90,170,240,1);box-shadow:0 0 8px rgba(90,170,240,.7),inset 0 1px 2px rgba(255,255,255,.7)"></span>
+            <span style="width:10px;height:10px;border-radius:50%;background:rgba(240,100,150,1);box-shadow:0 0 8px rgba(240,100,150,.7),inset 0 1px 2px rgba(255,255,255,.7)"></span>
+          </div>
+        </div>
+
+        <!-- Dark glass (chromatic) -->
+        <div data-glass="1" style="position:relative;overflow:hidden;border-radius:28px;padding:28px 26px 32px;background:linear-gradient(162deg,rgba(12,36,56,.72),rgba(10,45,70,.58) 54%,rgba(12,36,56,.68));backdrop-filter:blur(22px) saturate(1.5);-webkit-backdrop-filter:blur(22px) saturate(1.5);border:1px solid rgba(255,255,255,.22);box-shadow:0 20px 52px -20px rgba(0,0,0,.6),inset 0 2px 0 rgba(255,255,255,.32),inset 0 -24px 42px -30px rgba(0,120,200,.45),-1px 0 0 rgba(255,120,80,.2),1px 0 0 rgba(80,120,255,.22);cursor:pointer;transition:transform .45s cubic-bezier(.22,1,.36,1)" style-before="content:'';position:absolute;left:12px;right:12px;top:3px;height:38%;border-radius:22px;background:linear-gradient(180deg,rgba(255,255,255,.38),transparent);pointer-events:none;mix-blend-mode:screen" style-after="content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(260px circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.3),transparent 58%);opacity:var(--glr,0);transition:opacity .5s;mix-blend-mode:screen;z-index:4" style-hover="transform:translateY(-6px) scale(1.02)">
+          <p style="font-family:'Geist Mono',monospace;font-size:9.5px;letter-spacing:.28em;text-transform:uppercase;color:rgba(200,235,252,.6);margin-bottom:12px">Dark · Chromatic</p>
+          <p style="font-family:'DM Serif Display',serif;font-size:26px;color:#eaf7fb;line-height:1.1">Deep<br><span style="font-style:italic;background:linear-gradient(100deg,#5fc7e6,#9affd8);-webkit-background-clip:text;background-clip:text;color:transparent">Crystal</span></p>
+          <p style="font-size:13px;color:rgba(200,235,252,.6);margin-top:10px;line-height:1.5">RGB fringe · depth shadow · dark glass</p>
+          <div style="margin-top:20px;display:flex;gap:8px">
+            <span style="width:10px;height:10px;border-radius:50%;background:#5fc7e6;box-shadow:0 0 10px rgba(95,199,230,.9),inset 0 1px 2px rgba(255,255,255,.6)"></span>
+            <span style="width:10px;height:10px;border-radius:50%;background:#9affd8;box-shadow:0 0 10px rgba(154,255,216,.85),inset 0 1px 2px rgba(255,255,255,.6)"></span>
+            <span style="width:10px;height:10px;border-radius:50%;background:#c4b8ff;box-shadow:0 0 10px rgba(196,184,255,.8),inset 0 1px 2px rgba(255,255,255,.6)"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 3: Chip / tag elements -->
+    <div>
+      <p style="font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:rgba(12,38,60,.5);margin-bottom:22px">Glass Chips — iridescent · chromatic aberration</p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px">
+        <sc-for list="{{ chips }}" as="ch" hint-placeholder-count="6">
+          <div data-glass="1" style="position:relative;overflow:hidden;padding:10px 18px;border-radius:40px;background:linear-gradient(177deg,rgba(255,255,255,.72),rgba(220,244,252,.42) 50%,rgba(255,255,255,.6));border:1px solid rgba(255,255,255,.82);box-shadow:0 8px 22px -10px rgba(10,55,75,.35),inset 0 1.5px 0 rgba(255,255,255,.95),inset 0 -6px 12px -8px rgba(40,130,170,.32),-1px 0 0 {{ ch.rc }},1px 0 0 {{ ch.bc }};backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);display:flex;align-items:center;gap:8px;cursor:pointer;transition:transform .3s" style-after="content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(130px circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.55),transparent 60%);opacity:var(--glr,0);transition:opacity .4s;mix-blend-mode:screen" style-hover="transform:translateY(-2px) scale(1.04)">
+            <span style="width:8px;height:8px;border-radius:50%;background:{{ ch.col }};box-shadow:0 0 8px {{ ch.col }},inset 0 1px 1px rgba(255,255,255,.7)"></span>
+            <span style="font-size:12.5px;font-weight:600;letter-spacing:.04em;color:#0c2630">{{ ch.label }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:960,&quot;height&quot;:800}}">
+class Component extends DCLogic {
+  chips = [
+    { label:'Aquatic', col:'#2bb6c7', rc:'rgba(255,120,120,.14)', bc:'rgba(120,120,255,.16)' },
+    { label:'Mineral Water', col:'#6bd4e8', rc:'rgba(255,140,100,.12)', bc:'rgba(100,140,255,.14)' },
+    { label:'Orris', col:'#c49fe8', rc:'rgba(255,100,140,.14)', bc:'rgba(140,100,255,.16)' },
+    { label:'Cottonwood', col:'#8fd66b', rc:'rgba(255,130,130,.12)', bc:'rgba(130,130,255,.14)' },
+    { label:'Anemone', col:'#e88fc4', rc:'rgba(255,110,110,.13)', bc:'rgba(110,110,255,.15)' },
+    { label:'Lotus', col:'#f0d47a', rc:'rgba(255,120,100,.12)', bc:'rgba(120,100,255,.14)' },
+  ];
+
+  componentDidMount(){
+    let cur=null;
+    this._glare=(e)=>{
+      const el=e.target&&e.target.closest?e.target.closest('[data-glass]'):null;
+      if(el!==cur){ if(cur) cur.style.setProperty('--glr','0'); cur=el; if(cur) cur.style.setProperty('--glr','1'); }
+      if(el){ const r=el.getBoundingClientRect(); el.style.setProperty('--gx',(((e.clientX-r.left)/r.width)*100).toFixed(1)+'%'); el.style.setProperty('--gy',(((e.clientY-r.top)/r.height)*100).toFixed(1)+'%'); }
+    };
+    addEventListener('mousemove',this._glare,{passive:true});
+  }
+  componentWillUnmount(){ removeEventListener('mousemove',this._glare); }
+
+  renderVals(){ return { chips:this.chips }; }
+}
+</script>
+</body>
+</html>
